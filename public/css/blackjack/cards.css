@@ -1,0 +1,51 @@
+.card {
+    width: 60px;
+    height: 90px;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #bdc3c7;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    user-select: none;
+}
+
+.card.back {
+    background: repeating-linear-gradient(45deg,
+            #e74c3c,
+            #e74c3c 10px,
+            #c0392b 10px,
+            #c0392b 20px);
+    border: 2px solid white;
+}
+
+@keyframes deal-card {
+    from {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.hand-container {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.active-hand {
+    background: rgba(255, 215, 0, 0.2);
+    /* Gold highlight */
+    border: 1px solid gold;
+}

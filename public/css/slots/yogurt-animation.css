@@ -1,0 +1,236 @@
+/* SPACE YOGURT: Premium Hold & Spin Animation */
+
+.yogurt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 15000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1000px;
+    animation: fadeToBlack 0.5s forwards;
+}
+
+@keyframes fadeToBlack {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- The Galaxy --- */
+.galaxy-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* --- The Rocket Yogurt --- */
+.rocket-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    z-index: 10;
+    /* Phase 1: Traveling (Trembling) */
+    animation: travelShake 0.1s infinite;
+    transform-style: preserve-3d;
+}
+
+.rocket-yogurt {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    position: relative;
+    z-index: 2;
+}
+
+/* Rocket Flame (Always ON for travel) */
+.rocket-flame {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 100px;
+    background: linear-gradient(to bottom, #ffeb3b, #ff9800, #f44336, transparent);
+    border-radius: 50% 50% 20% 20%;
+    filter: blur(10px);
+    z-index: 1;
+    transform-origin: top center;
+    animation: flameBurn 0.1s infinite alternate;
+}
+
+/* PHASE 2: FIGURE 8 */
+.rocket-container.figure8 {
+    animation: doFigureEight 2s linear forwards;
+    /* Overrides travelShake */
+}
+
+/* PHASE 3: LAUNCH */
+.rocket-container.launching {
+    animation: rocketLaunch 1s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+
+@keyframes travelShake {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(1px, 1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, -1px) rotate(-1deg);
+    }
+
+    75% {
+        transform: translate(-1px, 1px) rotate(1deg);
+    }
+
+    100% {
+        transform: translate(1px, -1px) rotate(-1deg);
+    }
+}
+
+/* Smooth Lissajous Figure 8 */
+/* Majestic, wide vertical 8 */
+@keyframes doFigureEight {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    /* Top Loop (Right -> Up -> Left -> Center) */
+    12.5% {
+        transform: translate(60px, -40px) rotate(15deg);
+    }
+
+    25% {
+        transform: translate(0, -80px) rotate(0deg) scale(0.9);
+    }
+
+    /* Peak */
+    37.5% {
+        transform: translate(-60px, -40px) rotate(-15deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    /* Crossing Center */
+
+    /* Bottom Loop (Right -> Down -> Left -> Center) */
+    62.5% {
+        transform: translate(60px, 40px) rotate(15deg);
+    }
+
+    75% {
+        transform: translate(0, 80px) rotate(0deg) scale(1.1);
+    }
+
+    /* Bottom */
+    87.5% {
+        transform: translate(-60px, 40px) rotate(-15deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes rocketLaunch {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    20% {
+        transform: translateY(50px) scale(0.9);
+    }
+
+    /* Compress down */
+    40% {
+        transform: translateY(-50px) scale(1.1);
+    }
+
+    /* Jump start */
+    100% {
+        transform: translateY(-200vh) scale(0.5);
+    }
+
+    /* Blast off */
+}
+
+.rocket-container.launching~.galaxy-bg {
+    animation: bgZoom 4s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+
+@keyframes bgZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* --- Text --- */
+.hold-spin-text {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    /* Space font if available, fallback sans */
+    font-size: 4rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 20px #00d2ff;
+    letter-spacing: 5px;
+    z-index: 20;
+    opacity: 0;
+    animation: textAppear 1s 1s forwards;
+}
+
+@keyframes textAppear {
+    to {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+}

@@ -1,0 +1,85 @@
+/* Standard Win Animation */
+
+/* 1. Coin Particle */
+.coin-particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #ffd700, #daa520);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+@keyframes coin-fly {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0.5) rotate(var(--rot));
+        opacity: 0;
+    }
+}
+
+/* 2. Floating Win Text */
+.win-float-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-family: 'Impact', sans-serif;
+    font-size: 4rem;
+    color: #ffd700;
+    text-shadow: 0 2px 0 #b8860b, 0 0 20px rgba(255, 215, 0, 0.5);
+    z-index: 1001;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: win-text-pop 2s ease-out forwards;
+}
+
+@keyframes win-text-pop {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(-10deg);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -150%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 3. Screen Flash for Big Hits (optional usage) */
+.win-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 999;
+    animation: quick-flash 0.5s ease-out forwards;
+}
+
+@keyframes quick-flash {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

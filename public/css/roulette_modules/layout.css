@@ -1,0 +1,13 @@
+/* Layout Module */
+.roulette-game-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    height: 85vh;
+    background-color: #131722;
+    /* Dark Navy/Black */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    font-family: 'Outfit', sans-serif;
+}

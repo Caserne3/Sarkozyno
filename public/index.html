@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkozyno Fortune</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/roulette.css">
+    <link rel="stylesheet" href="css/slots/slots.css">
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('CRITICAL ERROR: This game cannot be played directly from the file system due to browser security restrictions (CORS).\n\nPlease use a local server (e.g., Live Server in VS Code, or "python -m http.server").\n\nSee walkthrough.md for details.');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo-container">
+                <h1 class="casino-logo">Sarkozyno <span class="highlight">Fortune</span></h1>
+            </div>
+            <div class="user-dashboard">
+                <div class="balance-display">
+                    <span class="label">Balance</span>
+                    <span class="amount" id="user-balance">$0.00</span>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">U</div>
+                </div>
+            </div>
+        </header>
+
+        <main id="game-stage" class="game-stage">
+            <!-- Dynamic Content Loaded Here -->
+            <div id="lobby-view" class="lobby-view">
+                <div class="hero-section">
+                    <h2>Welcome to the Grand Sarkozyno Fortune</h2>
+                    <p>Experience the thrill of premium gambling.</p>
+                </div>
+                <div class="games-grid">
+                    <div class="game-card" data-game="roulette">
+                        <div class="card-content">
+                            <h3>European Roulette</h3>
+                            <p>The classic wheel of fortune.</p>
+                            <button class="play-btn">Play Now</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="blackjack">
+                        <div class="card-content">
+                            <h3>Blackjack</h3>
+                            <p>Beat the Dealer to 21.</p>
+                            <button class="play-btn">Play Now</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-game="slots">
+                        <div class="card-content">
+                            <h3>Slots</h3>
+                            <p>Spin to Win!</p>
+                            <button class="play-btn">Play Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 Sarkozyno. Play Big, Win Big.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

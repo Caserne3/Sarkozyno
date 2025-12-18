@@ -1,0 +1,310 @@
+:root {
+    /* "Presidential Luxury" Palette */
+    --bg-deep: #050608;
+    --bg-navy: #0e121b;
+    --bg-glass: rgba(20, 25, 40, 0.7);
+
+    /* Gold Gradients */
+    --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --gold-text: linear-gradient(to bottom, #cfc09f 22%, #634f2c 24%, #cfc09f 26%, #cfc09f 27%, #ffecb3 40%, #3a2c0f 78%);
+    --gold-muted: #c5a059;
+
+    /* Accents */
+    --accent-red: #8b0000;
+    /* Darker, richer red */
+    --accent-green: #27ae60;
+
+    /* Text */
+    --text-primary: #ecf0f1;
+    --text-secondary: #95a5a6;
+
+    /* Fonts */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Outfit', sans-serif;
+
+    /* Spacing */
+    --measure-unit: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-deep);
+    /* Subtle geometric pattern or vignette */
+    background: radial-gradient(circle at center, #1a253a 0%, #050608 100%);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Header: The Palace Entrace --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: rgba(5, 6, 8, 0.85);
+    /* Dark Glass */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.casino-logo {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(191, 149, 63, 0.3);
+    font-weight: 700;
+}
+
+.casino-logo .highlight {
+    font-weight: 300;
+    font-style: italic;
+    color: #fff;
+    /* Fallback */
+    -webkit-text-fill-color: #fff;
+    /* Keep "Fortune" white for contrast, or gold? Let's keep it Gold Gradient too for max richness */
+    -webkit-text-fill-color: transparent;
+}
+
+/* User Dashboard */
+.user-dashboard {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.balance-display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.balance-display .label {
+    font-size: 0.7rem;
+    color: var(--gold-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.balance-display .amount {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--gold-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c0505;
+    font-weight: bold;
+    font-family: var(--font-serif);
+    box-shadow: 0 0 15px rgba(191, 149, 63, 0.5);
+    border: 2px solid #fff;
+}
+
+/* --- Main Stage --- */
+.game-stage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+.lobby-view {
+    width: 100%;
+    max-width: 1400px;
+    animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 2rem;
+}
+
+.hero-section h2 {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to bottom, #ffffff, #cfc09f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- Games Grid: The Showcase --- */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    padding: 0 2rem;
+}
+
+.game-card {
+    height: 450px;
+    position: relative;
+    border-radius: 4px;
+    /* Slightly refined corners for elegance */
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(191, 149, 63, 0.1);
+    background: #000;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(191, 149, 63, 0.6);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(191, 149, 63, 0.1);
+}
+
+/* Background Images */
+.game-card[data-game="roulette"] {
+    background: linear-gradient(to bottom, transparent 20%, #000 100%),
+        url('../assets/roulette_thumb.png') center/cover;
+}
+
+.game-card[data-game="slots"] {
+    background: linear-gradient(to bottom, transparent 20%, #000 100%),
+        url('../assets/slots_thumb.png') center/cover;
+}
+
+.game-card[data-game="blackjack"] {
+    background: linear-gradient(to bottom, transparent 20%, #000 100%),
+        url('../assets/blackjack_thumb.png') center/cover;
+}
+
+.game-card.coming-soon {
+    background: linear-gradient(to bottom, #1a1a1a, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 2;
+}
+
+.card-content h3 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-content p {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+/* Button: The Golden Ticket */
+.play-btn {
+    background: transparent;
+    color: #bf953f;
+    border: 1px solid #bf953f;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.play-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gold-gradient);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.play-btn:hover {
+    color: #2c0505;
+    border-color: transparent;
+}
+
+.play-btn:hover::before {
+    left: 0;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

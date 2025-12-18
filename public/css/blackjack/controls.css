@@ -1,0 +1,108 @@
+.controls-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.betting-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.game-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    /* Force horizontal */
+}
+
+.action-btn {
+    width: 65px;
+    height: 65px;
+    padding: 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: #34495e;
+    color: white;
+    border: 2px solid #5d6d7e;
+    border-radius: 50%;
+    /* Round */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:hover {
+    background: #2c3e50;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+.action-btn:disabled {
+    background: #7f8c8d;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+    box-shadow: none;
+}
+
+.action-btn.primary {
+    /* Deal button - make it a pill or distinct? User wanted round buttons split. */
+    /* Let's keep Deal button as a pill since it's in betting phase */
+    width: auto;
+    height: auto;
+    padding: 12px 40px;
+    border-radius: 30px;
+    background: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.action-btn.primary:hover {
+    background: #c0392b;
+}
+
+.chip-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid gold;
+    background: rgba(0, 0, 0, 0.2);
+    color: gold;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.chip-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.current-bet-display {
+    font-size: 1.2rem;
+    margin: 0 10px;
+    font-weight: bold;
+    color: white;
+}

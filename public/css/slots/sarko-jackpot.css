@@ -1,0 +1,364 @@
+/* Sarko Jailbreak Overlay - OVERKILL EDITION */
+.sarko-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: gradual-darken 2s forwards;
+    perspective: 1000px;
+}
+
+@keyframes gradual-darken {
+    to {
+        background: #000;
+    }
+}
+
+/* 1. Jail Scene with SEVERE SHAKE */
+.jail-scene {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 12005;
+}
+
+.jail-scene.shaking {
+    animation: earthquake 0.05s infinite;
+}
+
+@keyframes earthquake {
+    0% {
+        transform: translate(5px, 5px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-5px, -5px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translate(-5px, 5px) rotate(2deg);
+    }
+
+    75% {
+        transform: translate(5px, -5px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* 2. Sarko Behind Bars */
+.sarko-prisoner {
+    position: absolute;
+    width: 80%;
+    filter: grayscale(1) brightness(0.5);
+    transform: scale(0.9);
+    z-index: 12001;
+    opacity: 0;
+    animation: prisoner-enter 1s ease-in forwards 1s;
+    transition: filter 1s ease-in-out, transform 0.1s;
+}
+
+.sarko-prisoner.power-up {
+    filter: grayscale(0) brightness(1.5) drop-shadow(0 0 50px #ff0000);
+    animation: sarko-violent-shake 0.05s infinite;
+    opacity: 1;
+    /* Fix: Ensure he stays visible when animation swaps */
+}
+
+@keyframes prisoner-enter {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sarko-violent-shake {
+    0% {
+        transform: scale(1.1) translate(2px, 2px);
+    }
+
+    50% {
+        transform: scale(1.1) translate(-2px, -2px);
+    }
+
+    100% {
+        transform: scale(1.1) translate(0, 0);
+    }
+}
+
+/* 3. The Bars */
+.jail-bars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/jail_bars.png') no-repeat center center;
+    background-size: contain;
+    z-index: 12002;
+    opacity: 0;
+    animation: bars-appear 0.5s ease-out forwards 1.5s;
+}
+
+.jail-bars.breaking {
+    filter: brightness(3) sepia(1) hue-rotate(-50deg) saturate(10);
+    transform: scale(1.1);
+}
+
+@keyframes bars-appear {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 4. CHAOTIC CRACKS */
+.screen-crack {
+    position: absolute;
+    z-index: 12008;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.screen-crack.active {
+    animation: crack-smash 0.05s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes crack-smash {
+    to {
+        opacity: 1;
+        transform: scale(1.5) rotate(var(--rotation, 0deg));
+    }
+}
+
+/* Different backgrounds */
+.crack-type-1 {
+    background: url('../../assets/crack_corner.png') no-repeat center;
+    background-size: contain;
+}
+
+.crack-type-2 {
+    background: url('../../assets/crack_side.png') no-repeat center;
+    background-size: contain;
+}
+
+/* 5. NUKE EXPLOSION */
+.super-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #fff 0%, #ffff00 50%, #ff0000 100%);
+    z-index: 12020;
+    opacity: 0;
+    mix-blend-mode: hard-light;
+}
+
+.super-flash.active {
+    animation: nuclear-blast 0.8s ease-out forwards;
+}
+
+@keyframes nuclear-blast {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    10% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+.shockwave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 50px solid rgba(255, 255, 255, 0.9);
+    z-index: 12019;
+    opacity: 0;
+}
+
+.shockwave.active {
+    animation: shockwave-nuke 0.5s ease-out forwards;
+}
+
+@keyframes shockwave-nuke {
+    to {
+        width: 300vw;
+        height: 300vw;
+        opacity: 0;
+        border-width: 0;
+    }
+}
+
+/* 6. GOD MODE FINALE */
+.sarko-freed-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: 12015;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, #000 90%);
+}
+
+.sarko-freed-wrapper.active {
+    animation: heavenly-reveal 0.1s ease-out forwards;
+}
+
+@keyframes heavenly-reveal {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Asset Spam: Echoes */
+.sarko-freed {
+    width: 80%;
+    filter: drop-shadow(0 0 50px gold);
+    animation: sarko-pulse-god 2s infinite alternate;
+    position: relative;
+    z-index: 2;
+}
+
+.sarko-echo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    filter: blur(10px) sepia(1) hue-rotate(45deg);
+    z-index: 1;
+    animation: echo-pulse 1s infinite;
+}
+
+.sarko-echo:nth-child(2) {
+    animation-delay: 0.2s;
+    filter: blur(20px) hue-rotate(90deg);
+}
+
+.sarko-echo:nth-child(3) {
+    animation-delay: 0.4s;
+    filter: blur(30px) hue-rotate(180deg);
+}
+
+@keyframes sarko-pulse-god {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes echo-pulse {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+/* Money Rain */
+.particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px gold;
+    z-index: 12018;
+    animation: rain-fall linear forwards;
+}
+
+@keyframes rain-fall {
+    to {
+        transform: translateY(120vh) rotate(720deg);
+    }
+}
+
+/* 7. TEXT OVERKILL */
+.sarko-win-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 12030;
+    text-align: center;
+    opacity: 0;
+}
+
+.sarko-win-text.active {
+    animation: text-stomp 0.3s cubic-bezier(0.5, 3, 0.1, 1) forwards 0.5s;
+}
+
+@keyframes text-stomp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(10);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.sarko-win-text h1 {
+    font-size: 10rem;
+    line-height: 0.8;
+    color: transparent;
+    -webkit-text-stroke: 4px gold;
+    background: url('../../assets/oasis_gold_background.png');
+    /* Reuse texture */
+    -webkit-background-clip: text;
+    /* Compatible with chrome */
+    background-clip: text;
+    animation: texture-scroll 4s linear infinite;
+}
+
+@keyframes texture-scroll {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}

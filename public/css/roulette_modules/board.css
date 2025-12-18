@@ -1,0 +1,141 @@
+/* Board Module */
+.roulette-main-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #131722;
+    overflow-y: auto;
+}
+
+.wheel-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 300px;
+}
+
+.wheel-container {
+    width: 300px;
+    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#roulette-canvas {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Betting Table */
+.betting-table-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.betting-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.betting-grid {
+    display: grid;
+    grid-template-columns: 50px repeat(3, 1fr);
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.bet-cell {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: filter 0.2s;
+    position: relative;
+}
+
+.bet-cell:hover {
+    filter: brightness(1.2);
+}
+
+.bet-cell.red {
+    background-color: #e74c3c;
+}
+
+.bet-cell.black {
+    background-color: #2c3e50;
+}
+
+.bet-cell.green {
+    background-color: #27ae60;
+}
+
+.bet-cell.zero {
+    grid-row: 1 / span 13;
+    /* Vertical 0 */
+    background-color: #27ae60;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    border-radius: 4px 0 0 4px;
+}
+
+/* Outside Bets */
+.outside-bets-row {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.outside-bets-row .bet-cell {
+    flex: 1;
+    background-color: #1e2330;
+    border: 1px solid #2a2e39;
+    font-size: 0.8rem;
+}
+
+.outside-bets-row .bet-cell:hover {
+    background-color: #2a2e39;
+}
+
+/* Red/Black special cells */
+.bet-cell.special[data-value="red"] {
+    background-color: #e74c3c;
+}
+
+.bet-cell.special[data-value="black"] {
+    background-color: #2c3e50;
+}
+
+/* Chips on board */
+.chip-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #d4af37;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: #000;
+}

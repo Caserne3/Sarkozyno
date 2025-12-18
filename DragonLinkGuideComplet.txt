@@ -1,0 +1,62 @@
+Guide Complet de la Machine à Sous Dragon Link
+
+1. Configuration de Base
+- 5 Rouleaux, 3 Rangées.
+- Lignes de paiement : 25 à 50.
+- Mise : $0.01 à $125.
+
+2. Symboles et Valeurs
+- Basse Valeur : 10, J, Q, K, A (Paiement max 5x la mise).
+- Haute Valeur (Happy & Prosperous) :
+  - Bol, Fleur, Tigre, Bateau.
+  - Bouddha Doré (Jackpot 50,000x !).
+- Wild (Sauvage) : Remplace tout sauf Scatter et Boule de Feu.
+- Scatter (Bonus) : Déclenche les tours gratuits (3+ symboles). Paiement direct (50x, 100x, 500x).
+
+3. Symbole Spécial : La Boule de Feu Dorée (Fireball)
+- Active le bonus Hold & Spin.
+- Contient des valeurs ($10-$100) ou des Jackpots (MINI, MINOR, MAJOR).
+- GRAND Jackpot lié au réseau.
+
+4. Fonctionnalité Hold & Spin (Bonus Principal)
+- Déclenchement : 6 ou plus Boules de Feu.
+- 3 Tours de Respins.
+- Chaque nouvelle boule réinitialise le compteur à 3.
+- Victoire Standard : Somme des valeurs.
+- Jackpot GRAND : Si les 15 positions sont remplies.
+
+5. Fonctionnalité Free Spins (Tours Gratuits)
+- Déclenchement : 3+ Scatters.
+- 6 Tours Gratuits (standard).
+- Retrigger possible.
+- Symboles géants ou Wilds empilés selon la variante.
+
+6. Jackpots Progressifs
+- MINI : $50 - $500 (Fixe selon mise).
+- MINOR : $500 - $5,000 (Fixe selon mise).
+- MAJOR : Jusqu'à $1,000 (Progressif).
+- GRAND : $10,000 - $50,000+ (Lié en réseau).
+
+7. Comment Gagner les Jackpots
+- Méthode 1 : Boule de Feu dans Hold & Spin (MINI, MINOR, MAJOR, GRAND).
+- Méthode 2 : Remplir les 15 positions (GRAND Automatique).
+
+8. Stratégies et Optimisations
+- Augmenter le multiplicateur de mise pour augmenter les chances de Jackpots Progressifs.
+- Jouer lorsque le MAJOR est proche de son plafond ($1,000).
+- Optimiser les Tours Gratuits : chercher les variantes avec multiplicateurs élevés (Golden Century).
+
+9. Différentes Variantes
+- Panda Magic : Panda, Tigre, Bateau. Multiplicateurs 3x-5x.
+- Golden Century : Multiplicateurs jusqu'à 16x en tours gratuits.
+- Happy & Prosperous : Bouddha Doré (50,000x).
+- Autumn Moon : Thème automne asiatique.
+
+10. Tableau Récapitulatif
+- RTP : 94.71% - 96%
+- Bonus Principal : Hold & Spin (6+ Boules)
+- Tours Gratuits : 10-50 tours (selon variante/scatter count).
+- Max Win : 10,000$+ (Grand Jackpot).
+
+Conclusion
+La clé du succès réside dans la compréhension du Hold & Spin et l'importance du multiplicateur de mise.
