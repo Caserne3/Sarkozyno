@@ -344,11 +344,25 @@ export class Blackjack {
 
         await new Promise(r => setTimeout(r, 600));
 
+        // Find best non-busted player score
+        let bestPlayerScore = 0;
+        this.playerHands.forEach(hand => {
+            const val = this.getHandValue(hand.cards);
+            // if not bust, track max
+            if (val <= 21 && val > bestPlayerScore) {
+                bestPlayerScore = val;
+            }
+        });
+
         let dealerVal = this.getHandValue(this.dealerHand);
         // Dealer hits on 16 or less. Stands on 17.
-        // Soft 17 rule? "If the dealer has an ace, and counting it as 11 would bring the total to 17 or more (but not over 21), the dealer must count the ace as 11 and stand." -> This implies Dealer stands on Soft 17.
-        // Standard rule: "If the total is 17 or more, it must stand."
+        // Rule Mod: Dealer also stops if they beat the player's best score
         while (dealerVal < 17) {
+            // Check if dealer already beats best player
+            if (dealerVal > bestPlayerScore && bestPlayerScore > 0) {
+                break;
+            }
+
             this.dealerHand.push(this.dealCard());
             this.updateRenderer();
             dealerVal = this.getHandValue(this.dealerHand);
@@ -403,6 +417,11 @@ export class Blackjack {
         }
 
         this.currentBet = 0;
+
+        // Clear table immediately
+        this.playerHands = [];
+        this.dealerHand = [];
+
         this.updateRenderer();
     }
 
